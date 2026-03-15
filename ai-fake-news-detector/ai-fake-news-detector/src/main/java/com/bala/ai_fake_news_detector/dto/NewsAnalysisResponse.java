@@ -7,6 +7,7 @@ public record NewsAnalysisResponse(
         String content,
         Double credibilityScore,
         String explanation,
+        String verdict,
         Instant createdAt
 ) {
 }

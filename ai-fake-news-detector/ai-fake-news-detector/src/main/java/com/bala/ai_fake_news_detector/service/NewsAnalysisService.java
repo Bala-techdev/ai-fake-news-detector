@@ -28,6 +28,7 @@ public class NewsAnalysisService {
         entity.setContent(content);
         entity.setCredibilityScore(aiAnalysisResult.credibilityScore());
         entity.setExplanation(aiAnalysisResult.explanation());
+        entity.setVerdict(aiAnalysisResult.verdict());
 
         NewsAnalysis saved = newsAnalysisRepository.save(entity);
         return toResponse(saved);
@@ -63,6 +64,7 @@ public class NewsAnalysisService {
                 item.getContent(),
                 item.getCredibilityScore(),
                 item.getExplanation(),
+                item.getVerdict(),
                 item.getCreatedAt()
         );
     }

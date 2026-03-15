@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AiFakeNewsDetectorApplication {
 
 	public static void main(String[] args) {
+		DotenvPropertyLoader.load();
 		SpringApplication.run(AiFakeNewsDetectorApplication.class, args);
 	}
 

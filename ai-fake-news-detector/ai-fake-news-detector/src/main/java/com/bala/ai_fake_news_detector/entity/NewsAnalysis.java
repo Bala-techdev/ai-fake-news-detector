@@ -27,6 +27,9 @@ public class NewsAnalysis {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String explanation;
 
+    @Column(nullable = false)
+    private String verdict;
+
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
@@ -65,6 +68,14 @@ public class NewsAnalysis {
 
     public void setExplanation(String explanation) {
         this.explanation = explanation;
+    }
+
+    public String getVerdict() {
+        return verdict;
+    }
+
+    public void setVerdict(String verdict) {
+        this.verdict = verdict;
     }
 
     public Instant getCreatedAt() {
