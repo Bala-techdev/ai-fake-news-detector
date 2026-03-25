@@ -6,7 +6,7 @@ An AI-powered web application that analyzes news content and determines whether 
 
 🚀 Live Demo
 
-(Add your deployed link here later)
+soon
 
 ---
 
@@ -64,7 +64,7 @@ Frontend UI Display
 
 📷 Screenshots
 
-(Add your UI screenshot here)
+soon
 
 Example:
 
