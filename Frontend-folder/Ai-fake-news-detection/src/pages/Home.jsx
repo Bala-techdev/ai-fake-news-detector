@@ -2,7 +2,6 @@ import { useState } from 'react'
 import HeroSection from '../components/HeroSection'
 import Navbar from '../components/Navbar'
 import NewsAnalyzer from '../components/NewsAnalyzer'
-import ResultCard from '../components/ResultCard'
 import { analyzeNews } from '../services/api'
 
 function Home() {
@@ -16,17 +15,19 @@ function Home() {
 
     if (!trimmedText) {
       setError('Please enter some news content before analysis.')
+      setResult(null)
       return
     }
 
     setError('')
     setIsLoading(true)
+    setResult(null)
 
     try {
       const response = await analyzeNews(trimmedText)
       setResult(response)
-    } catch {
-      setError('Unable to analyze news right now. Please check that backend is running on localhost:8080.')
+    } catch (err) {
+      setError(err.message || 'Unable to analyze news right now. Please check that backend is running on localhost:8080.')
     } finally {
       setIsLoading(false)
     }
@@ -52,6 +53,7 @@ function Home() {
           onAnalyze={handleAnalyze}
           isLoading={isLoading}
           onLoadExample={handleLoadExample}
+          result={result}
         />
 
         {error ? (
@@ -61,8 +63,6 @@ function Home() {
             </div>
           </section>
         ) : null}
-
-        <ResultCard result={result} />
 
         <section id="about" className="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
           <div className="glass-panel rounded-3xl p-6 sm:p-8">

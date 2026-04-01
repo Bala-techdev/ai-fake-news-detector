@@ -1,7 +1,9 @@
+import ResultCard from './ResultCard'
+
 const EXAMPLE_FAKE_NEWS =
   'Breaking: Scientists confirm drinking silver nanoparticles daily reverses all chronic diseases in 72 hours. Hospitals are hiding this cure under pressure from pharmaceutical companies.'
 
-function NewsAnalyzer({ newsText, onChange, onAnalyze, isLoading, onLoadExample }) {
+function NewsAnalyzer({ newsText, onChange, onAnalyze, isLoading, onLoadExample, result }) {
   return (
     <section id="analyzer" className="mx-auto w-full max-w-6xl px-4 pt-14 sm:px-6 lg:px-8">
       <div className="glass-panel neon-border rounded-3xl p-6 sm:p-8">
@@ -33,20 +35,23 @@ function NewsAnalyzer({ newsText, onChange, onAnalyze, isLoading, onLoadExample 
             type="button"
             onClick={onAnalyze}
             disabled={isLoading}
-            className="inline-flex min-w-36 items-center justify-center rounded-xl bg-gradient-to-r from-fuchsia-500 via-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] hover:shadow-neon disabled:cursor-not-allowed disabled:opacity-60"
+            aria-busy={isLoading}
+            className={`inline-flex min-w-36 items-center justify-center rounded-xl bg-gradient-to-r from-fuchsia-500 via-blue-500 to-cyan-400 px-6 py-3 text-sm font-semibold text-white transition hover:scale-[1.02] hover:shadow-neon disabled:cursor-not-allowed disabled:opacity-70 ${
+              isLoading ? 'animate-pulse shadow-[0_0_22px_rgba(56,189,248,0.55)]' : ''
+            }`}
           >
             {isLoading ? (
               <span className="flex items-center gap-2">
-                <span className="h-2 w-2 animate-bounce rounded-full bg-white [animation-delay:0ms]" />
-                <span className="h-2 w-2 animate-bounce rounded-full bg-white [animation-delay:120ms]" />
-                <span className="h-2 w-2 animate-bounce rounded-full bg-white [animation-delay:240ms]" />
-                Analyzing...
+                <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                Analyzing with AI...
               </span>
             ) : (
               'Analyze'
             )}
           </button>
         </div>
+
+        <ResultCard result={result} />
       </div>
     </section>
   )

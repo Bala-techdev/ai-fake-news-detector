@@ -1,23 +1,26 @@
 const verdictColorMap = {
   real: {
-    label: 'Real',
-    ring: 'border-emerald-400/40',
-    bg: 'bg-emerald-400/15',
-    text: 'text-emerald-300',
+    label: 'REAL',
+    ring: 'border-emerald-400/50',
+    glow: 'shadow-[0_0_0_1px_rgba(16,185,129,0.25),0_0_22px_rgba(16,185,129,0.25),0_0_50px_rgba(16,185,129,0.2)]',
+    bg: 'bg-emerald-400/20',
+    text: 'text-emerald-200',
     progress: 'from-emerald-400 to-emerald-300',
   },
   fake: {
-    label: 'Fake',
-    ring: 'border-rose-400/40',
-    bg: 'bg-rose-400/15',
-    text: 'text-rose-300',
+    label: 'FAKE',
+    ring: 'border-rose-400/50',
+    glow: 'shadow-[0_0_0_1px_rgba(251,113,133,0.25),0_0_22px_rgba(251,113,133,0.25),0_0_50px_rgba(251,113,133,0.2)]',
+    bg: 'bg-rose-400/20',
+    text: 'text-rose-200',
     progress: 'from-rose-400 to-rose-300',
   },
   suspicious: {
-    label: 'Suspicious',
-    ring: 'border-amber-300/40',
-    bg: 'bg-amber-300/15',
-    text: 'text-amber-200',
+    label: 'SUSPICIOUS',
+    ring: 'border-amber-300/50',
+    glow: 'shadow-[0_0_0_1px_rgba(252,211,77,0.25),0_0_22px_rgba(252,211,77,0.25),0_0_50px_rgba(252,211,77,0.2)]',
+    bg: 'bg-amber-300/20',
+    text: 'text-amber-100',
     progress: 'from-amber-300 to-amber-200',
   },
 }
@@ -49,8 +52,8 @@ function ResultCard({ result }) {
   const confidence = Math.max(0, Math.min(100, Number(result.confidence) || 0))
 
   return (
-    <section className="mx-auto w-full max-w-6xl animate-fade-in-up px-4 pb-16 pt-10 sm:px-6 lg:px-8">
-      <div className={`glass-panel rounded-3xl border p-6 sm:p-8 ${palette.ring}`}>
+    <section className="mt-8 animate-fade-in-up">
+      <div className={`glass-panel rounded-3xl border p-6 transition-all duration-500 sm:p-8 ${palette.ring} ${palette.glow}`}>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h3 className="font-orbitron text-2xl font-bold text-white">Analysis Result</h3>
           <span
@@ -67,7 +70,7 @@ function ResultCard({ result }) {
           </div>
           <div className="h-3 overflow-hidden rounded-full bg-slate-800">
             <div
-              className={`h-full rounded-full bg-gradient-to-r ${palette.progress} transition-all duration-700 ease-out`}
+              className={`h-full rounded-full bg-gradient-to-r ${palette.progress} transition-all duration-1000 ease-out`}
               style={{ width: `${confidence}%` }}
             />
           </div>
