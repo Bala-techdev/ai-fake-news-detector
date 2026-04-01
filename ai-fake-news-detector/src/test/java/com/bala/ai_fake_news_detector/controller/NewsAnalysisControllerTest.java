@@ -3,7 +3,7 @@ package com.bala.ai_fake_news_detector.controller;
 import com.bala.ai_fake_news_detector.dto.AnalyzeRequest;
 import com.bala.ai_fake_news_detector.dto.NewsAnalysisResponse;
 import com.bala.ai_fake_news_detector.service.NewsAnalysisService;
-import com.bala.ai_fake_news_detector.service.AiAnalysisClient;
+// import com.bala.ai_fake_news_detector.service.AiAnalysisClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
