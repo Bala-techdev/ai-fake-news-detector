@@ -9,5 +9,8 @@ public record NewsAnalysisResponse(
         String explanation,
         String verdict,
         Instant createdAt
+
+
+        
 ) {
 }

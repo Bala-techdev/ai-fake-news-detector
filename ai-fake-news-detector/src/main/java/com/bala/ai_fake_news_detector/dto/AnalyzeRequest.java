@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 
 public record AnalyzeRequest(
         @NotBlank(message = "content is required")
+
+        
         String content
 ) {
 }
