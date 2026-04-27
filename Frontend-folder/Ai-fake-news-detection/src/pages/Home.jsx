@@ -23,6 +23,9 @@ function Home() {
     setIsLoading(true)
     setResult(null)
 
+
+    
+
     try {
       const response = await analyzeNews(trimmedText)
       setResult(response)
